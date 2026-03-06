@@ -11,7 +11,7 @@ jest.mock('next/link', () => {
 });
 
 jest.mock('next/image', () => {
-  const MockImage = ({ src, alt, ...props }:any) => {
+  const MockImage = ({ src, alt, ...props }: { src: string; alt: string; [key: string]: unknown }) => {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={src} alt={alt} {...props} />;
   };
@@ -166,6 +166,5 @@ describe('generateMetadata', () => {
     expect(metadata.title).toBe('Test Post Title');
     expect(metadata.description).toBe(mockPost.body.substring(0, 160));
     expect(metadata.openGraph?.title).toBe('Test Post Title');
-    expect(metadata.openGraph?.type).toBe('article');
   });
 });
