@@ -3,7 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ['jsonplaceholder.typicode.com','via.placeholder.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'jsonplaceholder.typicode.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+      },
+    ],
   }
 };
 
